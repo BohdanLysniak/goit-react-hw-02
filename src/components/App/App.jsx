@@ -2,6 +2,7 @@ import { useState } from "react";
 import Description from "../Description/Description";
 import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
+import Notification from "../Notification/Notification";
 
 function App() {
   const [response, setResponse] = useState({
@@ -9,6 +10,8 @@ function App() {
     neutral: 0,
     bad: 0
   });
+
+  const totalFeedback = response.good + response.neutral + response.bad;
 
   const updateFeedback = feedbackType => {
     setResponse({
@@ -21,7 +24,11 @@ function App() {
     <>
       <Description />
       <Options onUpdateFeedback={updateFeedback} />
-      <Feedback response={response} />
+      {totalFeedback > 0 ? (
+        <Feedback response={response} totalFeedback={totalFeedback} />
+      ) : (
+        <Notification />
+      )}
     </>
   );
 }
