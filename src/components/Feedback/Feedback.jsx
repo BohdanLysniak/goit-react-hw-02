@@ -1,4 +1,7 @@
-export default function Feedback({ response: { good, neutral, bad } }) {
+export default function Feedback({
+  positiveFeedback,
+  response: { good, neutral, bad }
+}) {
   return (
     <>
       <ul>
@@ -10,6 +13,9 @@ export default function Feedback({ response: { good, neutral, bad } }) {
         </li>
         <li>
           <p>Bad:{bad} </p>
+        </li>
+        <li>
+          <p>Positive: {positiveFeedback} </p>
         </li>
       </ul>
     </>
