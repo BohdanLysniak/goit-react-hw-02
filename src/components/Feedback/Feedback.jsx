@@ -1,21 +1,24 @@
+import clsx from "clsx";
+import css from "./Feedback.module.css";
+
 export default function Feedback({
   positiveFeedback,
   response: { good, neutral, bad }
 }) {
   return (
     <>
-      <ul>
+      <ul className={clsx(css.list)}>
         <li>
-          <p>Good:{good} </p>
+          <p className={clsx(css.text)}>Good:{good} </p>
         </li>
         <li>
-          <p>Neutral:{neutral} </p>
+          <p className={clsx(css.text)}>Neutral:{neutral} </p>
         </li>
         <li>
-          <p>Bad:{bad} </p>
+          <p className={clsx(css.text)}>Bad:{bad} </p>
         </li>
         <li>
-          <p>Positive: {positiveFeedback} % </p>
+          <p className={clsx(css.text)}>Positive: {positiveFeedback} % </p>
         </li>
       </ul>
     </>
