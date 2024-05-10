@@ -15,7 +15,7 @@ export default function Feedback({
           <p>Bad:{bad} </p>
         </li>
         <li>
-          <p>Positive: {positiveFeedback} </p>
+          <p>Positive: {positiveFeedback} % </p>
         </li>
       </ul>
     </>
