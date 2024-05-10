@@ -1,4 +1,8 @@
-export default function Options({ onUpdateFeedback }) {
+export default function Options({
+  onResetFeedback,
+  totalFeedback,
+  onUpdateFeedback
+}) {
   return (
     <>
       <button onClick={() => onUpdateFeedback("good")} type="button">
@@ -10,9 +14,11 @@ export default function Options({ onUpdateFeedback }) {
       <button onClick={() => onUpdateFeedback("bad")} type="button">
         Bad
       </button>
-      <button onClick={() => console.log()} type="button">
-        Reset
-      </button>
+      {totalFeedback > 0 && (
+        <button onClick={() => onResetFeedback()} type="button">
+          Reset
+        </button>
+      )}
     </>
   );
 }

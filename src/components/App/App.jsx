@@ -11,6 +11,10 @@ function App() {
     bad: 0
   });
 
+  const resetFeedback = () => {
+    setResponse({ good: 0, bad: 0, neutral: 0 });
+  };
+
   const totalFeedback = response.good + response.neutral + response.bad;
 
   const updateFeedback = feedbackType => {
@@ -23,12 +27,12 @@ function App() {
   return (
     <>
       <Description />
-      <Options onUpdateFeedback={updateFeedback} />
-      {totalFeedback > 0 ? (
-        <Feedback response={response} totalFeedback={totalFeedback} />
-      ) : (
-        <Notification />
-      )}
+      <Options
+        onUpdateFeedback={updateFeedback}
+        totalFeedback={totalFeedback}
+        onResetFeedback={resetFeedback}
+      />
+      {totalFeedback > 0 ? <Feedback response={response} /> : <Notification />}
     </>
   );
 }

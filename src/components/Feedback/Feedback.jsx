@@ -1,9 +1,17 @@
 export default function Feedback({ response: { good, neutral, bad } }) {
   return (
     <>
-      <p>Good:{good} </p>
-      <p>Neutral:{neutral} </p>
-      <p>Bad:{bad} </p>
+      <ul>
+        <li>
+          <p>Good:{good} </p>
+        </li>
+        <li>
+          <p>Neutral:{neutral} </p>
+        </li>
+        <li>
+          <p>Bad:{bad} </p>
+        </li>
+      </ul>
     </>
   );
 }
